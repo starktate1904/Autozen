@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+    <title>AutoZen|Login</title>
+    {% load static %}
+    {% include 'scripts/links.html' %}
+    {% include 'scripts/main_loader.html' %}
+    {% include 'scripts/messages.html' %}
+    
+</head>
+
+
+<body class="bg-gradient-light">
+   
+    
+
+
+    <style>
+        #logo{
+            width: 100px;
+            height: 100px;
+        }
+        .card {
+            max-width: 400px; /* adjust the max width to fit your needs */
+            margin: 40px auto; /* center the card horizontally */
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                max-width: 300px; /* adjust the max width for smaller screens */
+            }
+        }
+    </style>
+
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5"> <!-- adjust the column sizes to fit your needs -->
+                <div class="card o-hidden border-0   bg-gradient-light shadow-lg my-5 border-left-warning shadow py-2">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-md-8 col-xl-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <div class="d-flex justify-content-center py-4">
+                                            <a  class="logo d-flex align-items-center ">
+                                              <img src="{% static 'img/logo.png' %}" id="logo" alt="">
+                                            </a>
+                                          </div><!-- End Logo -->
+                                        <h1 class="h4 text-warning mb-4">Login</h1>
+                                    </div>
+                                    <form class="user" method="POST" action="{% url 'auth_pos:login' %}">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                           
+                                            <input type="text" class="form-control form-control-user" id="userName"
+                                                placeholder="Username" name="username" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                           
+                                            <input type="password" class="form-control form-control-user" name="password"
+                                                id="exampleInputPassword" placeholder="Password" required>
+                                        </div>
+                                      
+                                        <button class="btn btn-warning text-black btn-user btn-block" type="submit">
+                                            Login
+                                        </button>
+
+                                        <hr>
+
+                                        <div class="text-center">
+                                            <a class="small" href="{% url 'auth_pos:register' %}">Create an Account!</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+ </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% include 'scripts/scripts.html' %}
+    {% include 'scripts/messages.html' %}
+</body>
+
+
+</html>
